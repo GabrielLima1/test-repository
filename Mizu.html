@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!-- saved from url=(0019)http://mizu.com.br/ -->
+<html style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Mizu </title>
+  <link href="./Mizu_files/bootstrap.min.css" rel="stylesheet">
+  <link href="./Mizu_files/Site.css" rel="stylesheet">
+  <script src="./Mizu_files/modernizr-2.6.2.js.download"></script>
+</head>
+<body style="height: 613px; zoom: 0.798177;">
+  <style>
+    .modal-content {min-width: 610px;}
+    #header #top {max-width: 950px;}
+    .btn-regiao{border-radius: 10px; width: 102px; min-height: 42px; float: left; margin-top: 10px; margin-right: 10px; font-size: 14px; position: relative;}
+    .btn-regiao:focus{background: lightblue; color: white; font-weight: 700;}
+    .mostra-regiao{background-color: #00000026; padding:4px 33px; border-radius: 10px; float: left; min-width: 97%; margin-top: 2%;}
+    .modal-body{position: relative; overflow-y: auto; min-height: 400px; padding: 15px;}
+    .sdt-btn{width: 100%; height: 42px; padding: 4px 33px; border-radius: 9px; background-color: #fff; border: none; box-shadow: 3px 3px #00000029; margin-top: -7px; margin-bottom: 10px; font-family: "Arial"; font-size: 20px;}
+    hr{height: 2px; background-color: white;}
+    select{background-color: #dddddd; font-weight: 700; min-width: 100%; height: 30px; border-radius: 8px;transition: .25s all ease;}
+    @media only screen and (min-width: 481px){select{display: none;}}
+    @media only screen and (max-width: 480px){select{display: show;}.btn-regiao{display:none;}}
+  </style>
+  <div id="header" class="page-header">
+    <div id="menu">
+      <div class="container">
+        <nav class="navbar navbar-default " role="navigation"><ul class="nav navbar-nav"><li class="active"><a href="http://mizu.com.br/">Home</a></li><li><a href="http://mizu.com.br/Organization">Organização</a></li><li><a href="http://mizu.com.br/Product">Produtos</a></li><li><a href="http://mizu.com.br/Factory">Fábricas</a></li><li><a href="http://mizu.com.br/Location">Atuação</a></li><li><a href="http://mizu.com.br/Environmental">Socioambiental</a></li><li><a href="http://mizu.com.br/Contact">Fale Conosco</a></li></ul></nav>
+      </div>
+    </div>
+    <div id="top" class="container">
+      <div id="logo" class="pull-left">
+        <a href="http://mizu.com.br/"><img src="./Mizu_files/logo.png" alt="Mizu"></a>
+      </div>
+
+      <div id="options" class="pull-right">
+        <ul>
+          <li>
+            <a href="http://mizu.com.br/Location" class="location">
+              Encontre a fábrica ou centro de distribuição mais proximo de você
+            </a>
+          </li>
+          <li>
+            <a href="http://mizu.com.br/Client" class="contact">
+              Seja um cliente Mizu Saiba como fazer seu pedido
+            </a>
+          </li>
+          <li>
+            <a href="http://central.mizu.com.br:8080/?tipo=cliente" target="_blank" class="client">
+              Área de Clientes - Fornecedores
+            </a>
+          </li>
+          <li>
+            <a href="http://certificado.mizu.com.br/" target="_blank" class="certificate">
+              Certificados
+            </a>
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#myModal" class="">
+              Números de Celular
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="main" style="min-height: 472px;">
+
+    <div class="banners-container  first last">
+      <div class="story-board" style="width: 100%; margin-left: 0%;">
+        <div class="banner" style="background-image: url(/ResourceImages/BannerImage/408); width:100%;">
+          <div class="title" style="padding-left: 261px;">MUITO MAIS FORÇA PARA SUA OBRA</div>
+          <p class="text"></p>
+        </div>
+      </div>
+      <button class="btn-banner prev" style="left: 206px;"></button>
+      <button class="btn-banner next" style="left: 1114px;"></button>
+      <nav style="padding-left: 261px;">
+        <button value="0" title="MUITO MAIS FORÇA PARA SUA OBRA" class="active"></button>
+      </nav>
+    </div>
+
+    <div id="wrap">
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Lista de WhatsApp das Unidades da Mizu</h4>
+                </div>
+                <div class="modal-body">
+
+                  <div class="segura-btns">
+                    <h2>Selecione sua Região</h2>
+                    <button type="button" id="btn-nrt"  class="btn-regiao">Norte</button>
+                    <button type="button" id="btn-nrdt" class="btn-regiao">Nordeste</button>
+                    <button type="button" id="btn-cto"  class="btn-regiao">Centro-Oeste</button>
+                    <button type="button" id="btn-sdt"  class="btn-regiao">Sudeste</button>
+                    <button type="button" id="btn-sl"   class="btn-regiao">Sul</button>
+                  </div>
+
+                  <select class="segura-selct" name="regiao">
+                    <option value="default">Selecione aqui...</option>
+                    <option value="slct-nrt">Norte</option>
+                    <option value="slct-nrdt">Nordeste</option>
+                    <option value="slct-cto">Centro-Oeste</option>
+                    <option value="slct-sdt">Sudeste</option>
+                    <option value="slct-sl">Sul</option>
+                  </select>
+                  <div class="mostra-regiao">
+
+                    <div class="nrt">
+                      <h3 id="text">Celulares da Região selecionada</h3><hr>
+
+                      <h4>Unidade: Mizu - Manaus - AM</h4>
+                      <a href="https://api.whatsapp.com/send?phone=5592984523749&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (92) 9 8452-3749</h4>
+                      </a>
+                    </div>
+
+                    <div class="nrdt">
+                      <h3 id="text">Celulares da Região selecionada</h3>
+                      <hr>
+                      <h4>Unidade: Centro de Distribuição - Pesqueira - PE</h4>
+                      <a href="https://api.whatsapp.com/send?phone=xxxxxxxxxxxxx&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (xx) x xxxx-xxxx</h4>
+                      </a><hr>
+
+                      <h4>Unidade: Centro de Distribuição - Aracaju - SE</h4>
+                      <a href="https://api.whatsapp.com/send?phone=5579998248334&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (79) 9 9824-8334</h4>
+                      </a><hr>
+
+                      <h4>Unidade: Mizu - Baraúna - RN</h4>
+                      <a href="https://api.whatsapp.com/send?phone=5584994230201&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (84) 9 9423-0201</h4>
+                      </a><hr>
+
+                      <h4>Unidade: Centro de Distribuição Eunápolis - BA</h4>
+                      <a href="https://api.whatsapp.com/send?phone=5573998546973&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (73) 9 9854-6973</h4>
+                      </a><hr>
+
+                      <h4>Unidade: Mizu - Pacatuba - SE</h4>
+                      <a href="https://api.whatsapp.com/send?phone=5579998647077&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (79) 9 9864-7077</h4>
+                      </a>
+                    </div>
+
+                    <div class="cto">
+                      <h3 id="text">Celulares da Região selecionada</h3><hr>
+
+                      <h4 id="text">Ainda não temos números para essa Região.</h4>
+
+                    </div>
+
+                    <div class="sdt">
+                      <h3 id="text">Celulares da Região selecionada</h3><hr>
+
+                      <h4>Unidade: Centro de Distribuição Campos dos Goytacazes - RJ</h4>
+                      <a href="https://api.whatsapp.com/send?phone=5522999557121&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (22) 9 9955-7121</h4>
+                      </a><hr>
+
+                      <h4>Unidade: Centro de Distribuição - Cabo Frio - RJ</h4>
+                      <a href="https://api.whatsapp.com/send?phone=5522981377868&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (22) 9 8137-7868</h4>
+                      </a><hr>
+
+                      <h4>Unidade: Mizu - Rio de Janeiro - RJ</h4>
+                      <a href="https://api.whatsapp.com/send?phone=5521995572993&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (21) 9 9557-2993</h4>
+                      </a><hr>
+
+                      <h4>Unidade: Mizu - Mogi das Cruzes - SP</h4>
+                      <a href="https://api.whatsapp.com/send?phone=5511974687099&text=Olá,%20meu%20amigo!">
+                        <h4>Celular: (11) 9 7468-7099</h4>
+                      </a><hr>
+
+                      <button type="button" class="sdt-btn">Ver Mais</button>
+
+                      <div class="sdt-mais">
+                        <h4>Unidade: Centro de Distribuição Governador Valadares - MG</h4>
+                        <a href="https://api.whatsapp.com/send?phone=5533999891248&text=Olá,%20meu%20amigo!">
+                          <h4>Celular: (33) 9 9989-1248</h4>
+                        </a><hr>
+
+                        <h4>Unidade: Mizu - Matozinhos – MG</h4>
+                        <a href="https://api.whatsapp.com/send?phone=5531998399413&text=Olá,%20meu%20amigo!">
+                          <h4>Celular: (31) 9 9839-9413</h4>
+                        </a><hr>
+
+                        <h4>Unidade: Mizu - Vitória - ES</h4>
+                        <a href="https://api.whatsapp.com/send?phone=5527997455769&text=Olá,%20meu%20amigo!">
+                          <h4>Celular: (27) 9 9745-5769</h4>
+                        </a><hr>
+
+                        <h4>Unidade: Mizu - Matriz - SP</h4>
+                        <a href="https://api.whatsapp.com/send?phone=5511998461519&text=Olá,%20meu%20amigo!">
+                          <h4>Celular: (11) 9 9846-1519</h4>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="sl">
+                      <h3 id="text">Celulares da Região selecionada</h3><hr>
+
+                      <h4 id="text">Ainda não temos números para essa Região.</h4>
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+
+      <div id="highlighted">
+
+        <div id="location-widget" class="widget" style="background-image: url(&#39;/ResourceImages/PageImage/79?code=IMAGE&#39;);">
+          <h2 class="title" style="background-image: url(&#39;/ResourceImages/PageImage/79?code=ICON&#39;);"><a href="http://mizu.com.br/Location">Atuação</a></h2>
+          <p class="description">Cobrindo todo o território nacional com Fábricas próprias ou Centros de Distribuição, a Mizu tem capacidade para fornecer 4 milhões de toneladas de cimento por ano.</p>
+          <strong><a href="http://mizu.com.br/Location" class="call-link">Clique aqui e descubra a MIZU mais perto de você</a></strong>
+        </div>
+
+
+
+
+        <div id="news-widget" class="widget">
+          <h2 class="title" style="background-image: url(&#39;/ResourceImages/PageImage/82?code=ICON&#39;);"><a href="http://mizu.com.br/News">Notícias</a></h2>
+          <div class="item ">
+            <span class="news-date">30/09/2014</span>
+            <h3 class="news-title">Inaugurado Moinho II em Baraúna - RN</h3>
+            <p class="news-content">Visando aumentar ainda mais a capacidade de produção para a região nordeste a unidade de BARAÚNA acaba de colocar em funcionamento seu MOINHO II. Com esse novo moinho de cimento operando, a planta do Rio Grande do Norte, aumenta significativamente...</p>
+            <div class="read-more">
+              <a href="http://mizu.com.br/News?post=405">Leia mais +</a>
+            </div>
+          </div>
+          <div class="pagination">
+            <a href="http://mizu.com.br/News" class="more-news">Mais notícias</a>
+            <button title="Inaugurado Moinho II em Baraúna - RN" value="0" class="active" onclick="showNewsWidgetItem(this)">1</button>
+          </div>
+        </div>
+
+      </div>
+      <div id="pages-widgets">
+        <div class="widget">
+          <h2 class="title" style="background-image: url(&#39;/ResourceImages/PageImage/77?code=ICON&#39;);"><a href="http://mizu.com.br/Product">Produtos</a></h2>
+          <a href="http://mizu.com.br/Product" class="img-link"><img class="img-responsive" src="./Mizu_files/img-prod.jpg" alt="Produtos" title="Produtos"></a>
+        </div>
+
+        <div class="widget">
+          <h2 class="title" style="background-image: url(&#39;/ResourceImages/PageImage/78?code=ICON&#39;);"><a href="http://mizu.com.br/Factory">Fábricas</a></h2>
+          <a href="http://mizu.com.br/Factory" class="img-link"><img class="img-responsive" src="./Mizu_files/img-fab.jpg" alt="Fábricas" title="Fábricas"></a>
+        </div>
+
+        <div class="widget">
+          <h2 class="title" style="background-image: url(&#39;/ResourceImages/PageImage/80?code=ICON&#39;);"><a href="http://mizu.com.br/Environmental">Socioambiental</a></h2>
+          <a href="http://mizu.com.br/Environmental" class="img-link"><img class="img-responsive" src="./Mizu_files/img-socio.jpg" alt="Socioambiental" title="Socioambiental"></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div id="footer-options">
+      <p>©2014 Mizu<br> Todos os direitos reservados</p>
+      <!--<form id="search-form" method="get" action="News" class="pull-right">
+      <input type="text" name="term" id="term" /><br />
+      <input type="submit" name="Pesquisa" id="btnSearch" value="Pesquisar" />
+    </form>-->
+    <div style="clear: both;"></div>
+  </div>
+  <div id="copyright"><div class="container"><a target="_blank" href="http://www.spinolah.com.br/">Desenvolvido por Spinola Comunicação Integrada</a></div></div>
+</div>
+<script src="./Mizu_files/jquery-1.10.2.min.js.download"></script>
+<script src="./Mizu_files/bootstrap.min.js.download"></script>
+<script src="./Mizu_files/site.js.download"></script>
+<script type="text/javascript">
+  // $('.segura-btns').slick({
+  //   slidesToShow: 3,
+  // slidesToScroll: 3
+  // });
+
+  //CRIAR UMA FUNCTION PARA TUDO ESSE CÓDIGO
+  $("select.segura-selct").change(function(){
+
+    if ($(this).children(":selected").val() == "slct-nrt"){
+      $(".nrt").animate({height: 'toggle'},900);
+
+      $(".nrdt").hide();
+      $(".cto").hide();
+      $(".sdt").hide();
+      $(".sl").hide();
+    }else if ($(this).children(":selected").val() == "default"){
+      $(".nrt").animate({height: 'hide'},900);
+      $(".nrdt").animate({height: 'hide'},900);
+      $(".cto").animate({height: 'hide'},900);
+      $(".sdt").animate({height: 'hide'},900);
+      $(".sl").animate({height: 'hide'},900);
+    }else if ($(this).children(":selected").val() == "slct-nrdt") {
+      $(".nrdt").animate({height: 'toggle'},900);
+
+      $(".nrt").hide();
+      $(".cto").hide();
+      $(".sdt").hide();
+      $(".sl").hide();
+    }else if ($(this).children(":selected").val() == "slct-cto") {
+      $(".cto").animate({height: 'toggle'},900);
+
+      $(".nrt").hide();
+      $(".nrdt").hide();
+      $(".sdt").hide();
+      $(".sl").hide();
+    }else if ($(this).children(":selected").val() == "slct-sdt") {
+      $(".sdt").animate({height: 'toggle'},900);
+
+      $(".nrt").hide();
+      $(".nrdt").hide();
+      $(".cto").hide();
+      $(".sl").hide();
+    }else{
+      $(".sl").animate({height: 'toggle'},900);
+
+      $(".nrt").hide();
+      $(".nrdt").hide();
+      $(".cto").hide();
+      $(".sdt").hide();
+    }
+  });
+
+  $('#myModal').modal('hide');
+  $(".nrt").hide();
+  $(".nrdt").hide();
+  $(".cto").hide();
+  $(".sdt").hide();
+  $(".sl").hide();
+  $(".sdt-mais").hide();
+
+  // AO CLICAR EM QUALQUER BOTÃO EXIBIRÁ O H3
+
+
+  $("#btn-nrt").click(function(){
+    // $('.mostra-regiao').animate({height: 'toggle'},900);
+    $(".nrt").animate({height: 'toggle'},900);
+
+    $(".nrdt").hide();
+    $(".cto").hide();
+    $(".sdt").hide();
+    $(".sl").hide();
+  });
+
+  $("#btn-nrdt").click(function(){
+    // $('.mostra-regiao').animate({height: 'toggle'},900);
+    $(".nrdt").animate({height: 'toggle'},900);
+
+    $(".nrt").hide();
+    $(".cto").hide();
+    $(".sdt").hide();
+    $(".sl").hide();
+  });
+
+  $("#btn-cto").click(function(){
+    // $('.mostra-regiao').animate({height: 'toggle'},900);
+    $(".cto").animate({height: 'toggle'},900);
+
+    $(".nrt").hide();
+    $(".nrdt").hide();
+    $(".sdt").hide();
+    $(".sl").hide();
+  });
+
+  $("#btn-sdt").click(function(){
+    // $('.mostra-regiao').animate({height: 'toggle'},900);
+    $(".sdt").animate({height: 'toggle'},900);
+
+    $(".nrt").hide();
+    $(".nrdt").hide();
+    $(".cto").hide();
+    $(".sl").hide();
+    $(".sdt-mais").hide();
+    $(".sdt-btn").show();
+
+  });
+
+  $("#btn-sl").click(function(){
+    // $('.mostra-regiao').animate({height: 'toggle'},900);
+    $(".sl").animate({height: 'toggle'},900);
+
+    $(".nrt").hide();
+    $(".nrdt").hide();
+    $(".cto").hide();
+    $(".sdt").hide();
+  });
+
+  $(".sdt-btn").click(function(){
+    $(".sdt-mais").animate({height: 'toggle'},900);
+    console.log("oi");
+    $(".sdt-btn").hide();
+  });
+</script>
+
+
+</body></html>
