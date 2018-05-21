@@ -5,16 +5,20 @@
   <link href="./Mizu_files/bootstrap.min.css" rel="stylesheet">
   <link href="./Mizu_files/Site.css" rel="stylesheet">
   <script src="./Mizu_files/modernizr-2.6.2.js.download"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 <body style="height: 613px; zoom: 0.798177;">
   <style>
-    .modal-content {min-width: 610px;}
     #header #top {max-width: 950px;}
-    .btn-regiao{border-radius: 10px; width: 102px; min-height: 42px; float: left; margin-top: 10px; margin-right: 10px; font-size: 14px; position: relative;}
-    .btn-regiao:focus{background: lightblue; color: white; font-weight: 700;}
-    .mostra-regiao{background-color: #00000026; padding:4px 33px; border-radius: 10px; float: left; min-width: 97%; margin-top: 2%;}
+    .img-whats{margin-top: 10px;}
+    .modal-content{min-width: 610px; position: relative;}
+    .title_region{font-weight: 700;}
+    .btn-regiao{display: inline-block; font-weight: bold; font-size: 14px; vertical-align: middle; background-color: #f7f5ea; background-image: linear-gradient(to bottom, #f7f5ea, #ebefe5); border-radius: 10px; width: 110px; min-height: 42px;}
+    .btn-regiao:focus{background: #3f3f3f; color: white; font-weight: 701;box-shadow: 0 0 0 0;border: 0 none;outline: 0;}
+    .button-selct{background: #3f3f3f; color: white; font-weight: 701; box-shadow: 0 0 0 0;border: 0 none;outline: 0;}
+    .mostra-regiao{background-color: #fff; padding:4px 33px; border-radius: 10px; float: left; min-width: 97%; margin-top: 2%;}
     .modal-body{position: relative; overflow-y: auto; min-height: 400px; padding: 15px;}
-    .sdt-btn{width: 100%; height: 42px; padding: 4px 33px; border-radius: 9px; background-color: #fff; border: none; box-shadow: 3px 3px #00000029; margin-top: -7px; margin-bottom: 10px; font-family: "Arial"; font-size: 20px;}
+    .sdt-btn{width: 100%; height: 42px; padding: 4px 33px; border-radius: 9px; background-color: #efeded; border: none; box-shadow: 3px 3px #00000029; margin-top: -7px; margin-bottom: 10px; font-family: "Arial"; font-size: 20px;-vendor-animation-duration: 3s; -vendor-animation-delay: 2s; -vendor-animation-iteration-count: infinite;}
     hr{height: 2px; background-color: white;}
     select{background-color: #dddddd; font-weight: 700; min-width: 100%; height: 30px; border-radius: 8px;transition: .25s all ease;}
     @media only screen and (min-width: 481px){select{display: none;}}
@@ -82,135 +86,228 @@
     <div id="wrap">
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Lista de WhatsApp das Unidades da Mizu</h4>
-                </div>
-                <div class="modal-body">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" class="title_region" style="font-weight: 700;">
+                <img src="whatsapp.png" alt="Imagem icone WhatsApp" width="8%" height="auto">
+                Lista de WhatsApp das Unidades da Mizu
+              </h4>
+            </div>
+            <div class="modal-body">
 
-                  <div class="segura-btns">
-                    <h2>Selecione sua Região</h2>
-                    <button type="button" id="btn-nrt"  class="btn-regiao">Norte</button>
-                    <button type="button" id="btn-nrdt" class="btn-regiao">Nordeste</button>
-                    <button type="button" id="btn-cto"  class="btn-regiao">Centro-Oeste</button>
-                    <button type="button" id="btn-sdt"  class="btn-regiao">Sudeste</button>
-                    <button type="button" id="btn-sl"   class="btn-regiao">Sul</button>
-                  </div>
+              <div class="segura-btns">
+                <h2 id="title_region" align="center">SELECIONE SUA REGIÃO</h2><br/>
+                <button type="button" id="btn-nrt"  class="btn-regiao">Norte</button>
+                <button type="button" id="btn-nrdt" class="btn-regiao">Nordeste</button>
+                <button type="button" id="btn-cto"  class="btn-regiao">Centro-Oeste</button>
+                <button type="button" id="btn-sdt"  class="btn-regiao">Sudeste</button>
+                <button type="button" id="btn-sl"   class="btn-regiao">Sul</button>
+                <h3 id="text" align="center">Celulares da Região selecionada</h3><hr>
+              </div>
 
-                  <select class="segura-selct" name="regiao">
-                    <option value="default">Selecione aqui...</option>
-                    <option value="slct-nrt">Norte</option>
-                    <option value="slct-nrdt">Nordeste</option>
-                    <option value="slct-cto">Centro-Oeste</option>
-                    <option value="slct-sdt">Sudeste</option>
-                    <option value="slct-sl">Sul</option>
-                  </select>
-                  <div class="mostra-regiao">
+              <select class="segura-selct" name="regiao">
+                <option value="default">Selecione aqui...</option>
+                <option value="slct-nrt">Norte</option>
+                <option value="slct-nrdt">Nordeste</option>
+                <option value="slct-cto">Centro-Oeste</option>
+                <option value="slct-sdt">Sudeste</option>
+                <option value="slct-sl">Sul</option>
+              </select>
+              <div class="mostra-regiao">
 
-                    <div class="nrt">
-                      <h3 id="text">Celulares da Região selecionada</h3><hr>
-
+                <div class="nrt animated fadeInLeft">
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                    </div>
+                    <div class="col-xs-10">
                       <h4>Unidade: Mizu - Manaus - AM</h4>
                       <a href="https://api.whatsapp.com/send?phone=5592984523749&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (92) 9 8452-3749</h4>
                       </a>
                     </div>
+                  </div>
+                </div>
 
-                    <div class="nrdt">
-                      <h3 id="text">Celulares da Região selecionada</h3>
-                      <hr>
+                <div class="nrdt animated fadeInLeft">
+                  <!-- <h3 id="text">Celulares da Região selecionada</h3><hr> -->
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                    </div>
+                    <div class="col-xs-10">
                       <h4>Unidade: Centro de Distribuição - Pesqueira - PE</h4>
                       <a href="https://api.whatsapp.com/send?phone=xxxxxxxxxxxxx&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (xx) x xxxx-xxxx</h4>
-                      </a><hr>
+                      </a>
+                      <hr>
+                    </div>
 
+
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                    </div>
+                    <div class="col-xs-10">
                       <h4>Unidade: Centro de Distribuição - Aracaju - SE</h4>
                       <a href="https://api.whatsapp.com/send?phone=5579998248334&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (79) 9 9824-8334</h4>
-                      </a><hr>
+                      </a>
+                      <hr>
+                    </div>
 
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                    </div>
+                    <div class="col-xs-10">
                       <h4>Unidade: Mizu - Baraúna - RN</h4>
                       <a href="https://api.whatsapp.com/send?phone=5584994230201&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (84) 9 9423-0201</h4>
-                      </a><hr>
+                      </a>
+                      <hr>
+                    </div>
 
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                    </div>
+                    <div class="col-xs-10">
                       <h4>Unidade: Centro de Distribuição Eunápolis - BA</h4>
                       <a href="https://api.whatsapp.com/send?phone=5573998546973&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (73) 9 9854-6973</h4>
-                      </a><hr>
+                      </a>
+                      <hr>
+                    </div>
 
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                    </div>
+                    <div class="col-xs-10">
                       <h4>Unidade: Mizu - Pacatuba - SE</h4>
                       <a href="https://api.whatsapp.com/send?phone=5579998647077&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (79) 9 9864-7077</h4>
                       </a>
                     </div>
+                  </div>
+                </div>
 
-                    <div class="cto">
-                      <h3 id="text">Celulares da Região selecionada</h3><hr>
+                <div class="cto animated fadeInLeft">
+                  <!-- <h3 id="text">Celulares da Região selecionada</h3><hr> -->
 
-                      <h4 id="text">Ainda não temos números para essa Região.</h4>
+                  <h4 class="title_region">Ainda não temos números para essa Região.</h4>
 
+                </div>
+
+                <div class="sdt animated fadeInLeft">
+                  <!-- <h3 id="text">Celulares da Região selecionada</h3><hr> -->
+                  <div class="row">
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
                     </div>
-
-                    <div class="sdt">
-                      <h3 id="text">Celulares da Região selecionada</h3><hr>
-
+                    <div class="col-xs-10">
                       <h4>Unidade: Centro de Distribuição Campos dos Goytacazes - RJ</h4>
                       <a href="https://api.whatsapp.com/send?phone=5522999557121&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (22) 9 9955-7121</h4>
-                      </a><hr>
+                      </a>
+                      <hr>
+                    </div>
 
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                    </div>
+                    <div class="col-xs-10">
                       <h4>Unidade: Centro de Distribuição - Cabo Frio - RJ</h4>
                       <a href="https://api.whatsapp.com/send?phone=5522981377868&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (22) 9 8137-7868</h4>
-                      </a><hr>
+                      </a>
+                      <hr>
+                    </div>
 
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                    </div>
+                    <div class="col-xs-10">
                       <h4>Unidade: Mizu - Rio de Janeiro - RJ</h4>
                       <a href="https://api.whatsapp.com/send?phone=5521995572993&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (21) 9 9557-2993</h4>
-                      </a><hr>
+                      </a>
+                      <hr>
+                    </div>
 
+                    <div class="col-xs-2">
+                      <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                    </div>
+                    <div class="col-xs-10">
                       <h4>Unidade: Mizu - Mogi das Cruzes - SP</h4>
                       <a href="https://api.whatsapp.com/send?phone=5511974687099&text=Olá,%20meu%20amigo!">
                         <h4>Celular: (11) 9 7468-7099</h4>
-                      </a><hr>
+                      </a>
+                      <hr>
+                    </div>
 
-                      <button type="button" class="sdt-btn">Ver Mais</button>
+                    <button type="button" class="sdt-btn">Ver Mais</button>
 
-                      <div class="sdt-mais">
+                    <div class="sdt-mais animated fadeInLeft">
+                      <div class="col-xs-2">
+                        <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                      </div>
+                      <div class="col-xs-10">
                         <h4>Unidade: Centro de Distribuição Governador Valadares - MG</h4>
                         <a href="https://api.whatsapp.com/send?phone=5533999891248&text=Olá,%20meu%20amigo!">
                           <h4>Celular: (33) 9 9989-1248</h4>
-                        </a><hr>
+                        </a>
+                        <hr>
+                      </div>
 
+                      <div class="col-xs-2">
+                        <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                      </div>
+                      <div class="col-xs-10">
                         <h4>Unidade: Mizu - Matozinhos – MG</h4>
                         <a href="https://api.whatsapp.com/send?phone=5531998399413&text=Olá,%20meu%20amigo!">
                           <h4>Celular: (31) 9 9839-9413</h4>
-                        </a><hr>
+                        </a>
+                        <hr>
+                      </div>
 
+                      <div class="col-xs-2">
+                        <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                      </div>
+                      <div class="col-xs-10">
                         <h4>Unidade: Mizu - Vitória - ES</h4>
                         <a href="https://api.whatsapp.com/send?phone=5527997455769&text=Olá,%20meu%20amigo!">
                           <h4>Celular: (27) 9 9745-5769</h4>
-                        </a><hr>
+                        </a>
+                        <hr>
+                      </div>
 
+                      <div class="col-xs-2">
+                        <img src="whatsapp.png" class="img-whats" alt="Imagem icone WhatsApp" width="100%" height="auto">
+                      </div>
+                      <div class="col-xs-10">
                         <h4>Unidade: Mizu - Matriz - SP</h4>
                         <a href="https://api.whatsapp.com/send?phone=5511998461519&text=Olá,%20meu%20amigo!">
                           <h4>Celular: (11) 9 9846-1519</h4>
                         </a>
                       </div>
                     </div>
-
-                    <div class="sl">
-                      <h3 id="text">Celulares da Região selecionada</h3><hr>
-
-                      <h4 id="text">Ainda não temos números para essa Região.</h4>
-
-                    </div>
                   </div>
+
+
                 </div>
+
+                <div class="sl animated fadeInLeft">
+                  <!-- <h3 id="text">Celulares da Região selecionada</h3><hr> -->
+
+                  <h4 class="title_region">Ainda não temos números para essa Região.</h4>
+
+                </div>
+              </div>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -287,11 +384,12 @@
   $("select.segura-selct").change(function(){
 
     if ($(this).children(":selected").val() == "slct-nrt"){
-      $(".nrt").animate({height: 'toggle'},900);
+      $(".nrt").show();
 
       $(".nrdt").hide();
       $(".cto").hide();
       $(".sdt").hide();
+      $("#btn-sdt").removeClass("button-selct");
       $(".sl").hide();
     }else if ($(this).children(":selected").val() == "default"){
       $(".nrt").animate({height: 'hide'},900);
@@ -300,41 +398,48 @@
       $(".sdt").animate({height: 'hide'},900);
       $(".sl").animate({height: 'hide'},900);
     }else if ($(this).children(":selected").val() == "slct-nrdt") {
-      $(".nrdt").animate({height: 'toggle'},900);
+      $(".nrdt").show();
 
       $(".nrt").hide();
+      $("#btn-nrt").removeClass('button-selct');
       $(".cto").hide();
       $(".sdt").hide();
+      $("#btn-sdt").removeClass("button-selct");
       $(".sl").hide();
     }else if ($(this).children(":selected").val() == "slct-cto") {
-      $(".cto").animate({height: 'toggle'},900);
+      $(".cto").show();
 
       $(".nrt").hide();
+      $("#btn-nrt").removeClass('button-selct');
       $(".nrdt").hide();
       $(".sdt").hide();
+      $("#btn-sdt").removeClass("button-selct");
       $(".sl").hide();
     }else if ($(this).children(":selected").val() == "slct-sdt") {
-      $(".sdt").animate({height: 'toggle'},900);
+      $(".sdt").show();
 
       $(".nrt").hide();
+      $("#btn-nrt").removeClass('button-selct');
       $(".nrdt").hide();
       $(".cto").hide();
       $(".sl").hide();
     }else{
-      $(".sl").animate({height: 'toggle'},900);
+      $(".sl").show();
 
       $(".nrt").hide();
+      $("#btn-nrt").removeClass('button-selct');
       $(".nrdt").hide();
       $(".cto").hide();
       $(".sdt").hide();
+      $("#btn-sdt").removeClass("button-selct");
     }
   });
 
-  $('#myModal').modal('hide');
-  $(".nrt").hide();
+  $("#btn-nrt").addClass('button-selct');
   $(".nrdt").hide();
   $(".cto").hide();
   $(".sdt").hide();
+  $("#btn-sdt").removeClass("button-selct");
   $(".sl").hide();
   $(".sdt-mais").hide();
 
@@ -342,40 +447,46 @@
 
 
   $("#btn-nrt").click(function(){
-    // $('.mostra-regiao').animate({height: 'toggle'},900);
-    $(".nrt").animate({height: 'toggle'},900);
+    // $('.mostra-regiao').show();
+    $(".nrt").show();
 
     $(".nrdt").hide();
     $(".cto").hide();
     $(".sdt").hide();
+    $("#btn-sdt").removeClass("button-selct");
     $(".sl").hide();
   });
 
   $("#btn-nrdt").click(function(){
-    // $('.mostra-regiao').animate({height: 'toggle'},900);
-    $(".nrdt").animate({height: 'toggle'},900);
+    // $('.mostra-regiao').show();
+    $(".nrdt").show();
 
     $(".nrt").hide();
+    $("#btn-nrt").removeClass('button-selct');
     $(".cto").hide();
     $(".sdt").hide();
+    $("#btn-sdt").removeClass("button-selct");
     $(".sl").hide();
   });
 
   $("#btn-cto").click(function(){
-    // $('.mostra-regiao').animate({height: 'toggle'},900);
-    $(".cto").animate({height: 'toggle'},900);
+    // $('.mostra-regiao').show();
+    $(".cto").show();
 
     $(".nrt").hide();
+    $("#btn-nrt").removeClass('button-selct');
     $(".nrdt").hide();
     $(".sdt").hide();
+    $("#btn-sdt").removeClass("button-selct");
     $(".sl").hide();
   });
 
   $("#btn-sdt").click(function(){
-    // $('.mostra-regiao').animate({height: 'toggle'},900);
-    $(".sdt").animate({height: 'toggle'},900);
+    // $('.mostra-regiao').show();
+    $(".sdt").show();
 
     $(".nrt").hide();
+    $("#btn-nrt").removeClass('button-selct');
     $(".nrdt").hide();
     $(".cto").hide();
     $(".sl").hide();
@@ -385,18 +496,21 @@
   });
 
   $("#btn-sl").click(function(){
-    // $('.mostra-regiao').animate({height: 'toggle'},900);
-    $(".sl").animate({height: 'toggle'},900);
+    // $('.mostra-regiao').show();
+    $(".sl").show();
 
     $(".nrt").hide();
+    $("#btn-nrt").removeClass('button-selct');
     $(".nrdt").hide();
     $(".cto").hide();
     $(".sdt").hide();
+    $("#btn-sdt").removeClass("button-selct");
   });
 
   $(".sdt-btn").click(function(){
-    $(".sdt-mais").animate({height: 'toggle'},900);
-    console.log("oi");
+    $(".sdt-mais").show();
+    $("#btn-sdt").addClass("button-selct");
+    // alert("oi");
     $(".sdt-btn").hide();
   });
 </script>
